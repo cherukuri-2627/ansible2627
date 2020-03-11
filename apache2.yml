@@ -2,9 +2,10 @@
 - hosts: all
   become : yes
   tasks:
-   -name: ping the hosts
-    ping:
-  - name: installing webserver
-    apt:
-     name: apache2
-     state: present
+   - name: ping the hosts
+     ping:
+   - name: installing webserver
+     apt:
+      name: apache2
+      state: absent
+      update_cache: yes
