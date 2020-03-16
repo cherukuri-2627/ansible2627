@@ -1,0 +1,11 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+  - name: update cache
+    apt:
+     update_cache: yes
+  - name: git installation
+    apt:
+     name: "{{var1}}"
+     state: "{{var2}}"

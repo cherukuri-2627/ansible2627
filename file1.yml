@@ -1,0 +1,13 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+  - name: file creation
+    lineinfile:
+     path: /home/cherukuri/sample.txt
+     line: 'add things in the file as lin2'
+  - name: block in file
+    blockinfile:
+     path: /home/cherukuri/sample.txt
+     block: 
+       <h1> this is sample file </h1>

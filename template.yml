@@ -1,0 +1,20 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+  - name: creating aa file
+    file:
+     path: /home/cherukuri/file2.txt
+     state: touch
+  - name: installing webserver
+    apt:
+     name: apache2
+     state: present
+  - name: starting service
+    service:
+     name: apache2
+     state: started
+  - name: calling template
+    template:
+     src: template1.j2
+     dest: /var/www/html/index.html

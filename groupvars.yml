@@ -1,0 +1,18 @@
+---
+- hosts: webserver
+  become: yes
+  tasks:
+  - name: updating cache
+    apt:
+     update_cache: yes
+  - name: uninstalling java
+    apt:
+     name: "{{var1}}"
+     state: "{{var3}}"
+  - name: starting java service
+    service:
+     name: "{{var1}}"
+     state: "{{var5}}"
+
+    
+    

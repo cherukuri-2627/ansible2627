@@ -1,0 +1,21 @@
+---
+- hosts: all
+  become: yes
+  vars:
+   var1: git
+   var2: tree
+   var3: wget
+   var4: present
+   var5: absent
+   var6: no
+   var7: yes
+  tasks:
+  - name: loop creation installation
+    apt:
+     name: "{{ item }}"
+     state: "{{var4}}"
+    ignore_errors: "{{var7}}"
+    loop:
+     - "{{var1}}"
+     - "{{var2}}"
+     - "{{var3}}"

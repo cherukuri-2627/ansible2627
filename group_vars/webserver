@@ -1,0 +1,6 @@
+---
+var1: apache2
+var2: present
+var3: absent
+var4: started
+var5: stopped
