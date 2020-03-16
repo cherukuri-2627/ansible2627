@@ -9,7 +9,7 @@
    var5: restarted
    var6: stopped
    var7: git
-   var8: treee
+   var8: tree
    var9: wget
    var10: yes
    var11: no
@@ -59,6 +59,11 @@
      dest: /var/www/html/index.html  
     tags:
     - configuration
+  - name:
+    shell: echo "only on CentOS"
+    when: ansible_os_family == "CentOS"
+    tags: 
+    - echo
   handlers:
   - name: restartwebserver
     service:
