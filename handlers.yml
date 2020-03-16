@@ -23,6 +23,8 @@
     apt:
      name: "{{ item }}"
      state: "{{var2}}"
+    tags: 
+    - packages
     ignore_errors: "{{var10}}"
     notify: restartwebserver
     loop:
@@ -34,23 +36,29 @@
     file:
      path: /home/cherukuri/sampledir
      state: "{{var12}}"
+    tags:
+    - directory
   - name: file creation
     file:
-     path: /home/cherukuri/sampledir/sample2.txt
+     path: /home/cherukuri/sampledir/sample3.txt
      state: "{{var13}}"   
+    tags:
+    - file
   - name: content in a file
     lineinfile:
-     path: /home/cherukuri/sampledir/sample2.txt
-     line: hi this is my first line 
+     path: /home/cherukuri/sampledir/sample3.txt
+     line: hi this is my first line in a file
   - name: block in a file 
     blockinfile:
-     path: /home/cherukuri/sampledir/sample2.txt
+     path: /home/cherukuri/sampledir/sample3.txt
      block:
-      <h1>  this is sample file that sates a file </h1>
+      <h1>  this is sample file that sates a newly changed file </h1>
   - name: template to display
     template:
      src: template1.j2
      dest: /var/www/html/index.html  
+    tags:
+    - configuration
   handlers:
   - name: restartwebserver
     service:
