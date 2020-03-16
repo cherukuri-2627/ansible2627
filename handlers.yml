@@ -1,0 +1,60 @@
+---
+- hosts: all
+  become: yes
+  vars:
+   var1: apache2
+   var2: present
+   var3: absent
+   var4: started
+   var5: restarted
+   var6: stopped
+   var7: git
+   var8: treee
+   var9: wget
+   var10: yes
+   var11: no
+   var12: directory
+   var13: touch
+  tasks:
+  - name: cache update
+    apt:
+     update_cache: "{{var10}}"
+  - name: installations
+    apt:
+     name: "{{ item }}"
+     state: "{{var2}}"
+    ignore_errors: "{{var10}}"
+    notify: restartwebserver
+    loop:
+     - "{{var1}}"
+     - "{{var7}}"
+     - "{{var8}}"
+     - "{{var9}}"
+  - name: directory creation
+    file:
+     path: /home/cherukuri/sampledir
+     state: "{{var12}}"
+  - name: file creation
+    file:
+     path: /home/cherukuri/sampledir/sample2.txt
+     state: "{{var13}}"   
+  - name: content in a file
+    lineinfile:
+     path: /home/cherukuri/sampledir/sample2.txt
+     line: hi this is my first line 
+  - name: block in a file 
+    blockinfile:
+     path: /home/cherukuri/sampledir/sample2.txt
+     block:
+      <h1>  this is sample file that sates a file </h1>
+  - name: template to display
+    template:
+     src: template1.j2
+     dest: /var/www/html/index.html  
+  handlers:
+  - name: restartwebserver
+    service:
+     name: "{{var1}}" 
+     state: "{{var5}}"
+ 
+   
