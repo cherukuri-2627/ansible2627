@@ -1,0 +1,18 @@
+---
+- hosts: all
+  become: yes
+  vars:
+   var1: apache2
+   var2: present
+   var3: absent
+   var4: started
+   var5: stopped
+  tasks:
+  - name: installing apache2 on ubuntu
+    apt:
+     name: "{{var1}}"
+     state: "{{var2}}"
+  - name: starting service
+    service:
+     name: "{{var1}}"
+     state: "{{var4}}"
