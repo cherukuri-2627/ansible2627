@@ -1,0 +1,12 @@
+---
+- hosts: all
+  become: yes
+  gather_facts: false
+  tasks:
+  - name: install git on nodes
+    apt:
+     name: git
+     state: present
+    service:
+     name: git
+     state: started
