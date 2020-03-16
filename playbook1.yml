@@ -1,12 +1,13 @@
 ---
 - hosts: all
   become: yes
-  gather_facts: false
+  # gather_facts: false
   tasks:
   - name: install git on nodes
     apt:
-     name: git
-     state: present
+     name: apache2
+     state: absent
+  - name: start git service
     service:
-     name: git
-     state: started
+     name: apache2
+     state: stopped
