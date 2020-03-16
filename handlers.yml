@@ -53,6 +53,13 @@
      path: /home/cherukuri/sampledir/sample3.txt
      block:
       <h1>  this is sample file that sates a newly changed file </h1>
+  - name: creating sub-directories
+    command:
+     cmd: mkdir -p /home/cherukuri/sampledir/sub-sampledir
+  - name: file creation in subdir
+    file:
+     path: /home/cherukuri/sampledir/sub-sampledir/sample10.txt
+     state: "{{var13}}"
   - name: template to display
     template:
      src: template1.j2
