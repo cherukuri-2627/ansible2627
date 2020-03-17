@@ -1,18 +1,24 @@
 ---
 - hosts: all
   become: yes
+  vars:
+   var1: present
+   var2: absent
+   var3: yes
+   var4: abcd
+   var5: bacd
   tasks:
   - name: groups creation
     group:
      name: "{{ item }}"
-     state: present
+     state: "{{var1}}"
     loop:
      - group1
      - group2
   - name: user creation in group
     user:
      name: "{{ item }}"
-     password: abcd
+     password: "{{var4}}"
      shell: /bin/bash
      group: group1
     loop:
@@ -22,7 +28,7 @@
   - name: user creation in group2
     user:
      name: "{{ item }}"
-     password: bacd
+     password: "{{var5}}"
      shell: /bin/bash
      group: group2
     loop:
@@ -32,12 +38,12 @@
   - name: delete user in group1
     user:
      name: user1
-     state: absent
-     remove: yes
+     state: "{{var2}}"
+     remove: "{{var3}}"
      group: group1
   - name: delete user from group2
     user:
      name: user4
-     state: absent
-     remove: yes
+     state: "{{var2}}"
+     remove: "{{var3}}"
      group: group2
