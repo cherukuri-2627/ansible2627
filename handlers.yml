@@ -42,7 +42,8 @@
   - name: file creation
     file:
      path: /home/cherukuri/sampledir/sample3.txt
-     state: "{{var13}}"   
+     state: "{{var13}}"
+     mode: u+rw,g-wx,o-rwx   
     tags:
     - file
   - name: content in a file
@@ -61,6 +62,7 @@
     file:
      path: /home/cherukuri/sampledir/sub-sampledir/sample10.txt
      state: "{{var13}}"
+     mode: u+rw,g-wx,o-rwx
   - name: template to display
     template:
      src: template1.j2
