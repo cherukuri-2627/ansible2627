@@ -37,6 +37,7 @@
     file:
      path: /home/cherukuri/sampledir
      state: "{{var12}}"
+     recurse: "{{var10}}"
     tags:
     - directory
   - name: file creation
