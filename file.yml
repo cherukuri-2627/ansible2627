@@ -1,8 +1,5 @@
 ---
-- hosts: all
-  become: yes
-  tasks:
-  - name: file creation
-    file:
-     path: /home/ubuntu/file1.txt
-     state: touch
+- name: file creation
+  file:
+    path: /home/cherukuri/file2.txt
+    state: touch

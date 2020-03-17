@@ -16,6 +16,7 @@
    var12: directory
    var13: touch
   tasks:
+  - include_tasks: include1.yml
   - name: cache update
     apt:
      update_cache: "{{var10}}"

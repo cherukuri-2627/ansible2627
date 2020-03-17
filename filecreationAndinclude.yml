@@ -2,7 +2,7 @@
 - hosts: all
   become: yes
   tasks:
-  - include_tasks: playbook1.yml
+  - include_tasks: file.yml
   - name: install git
     apt:
      name: git

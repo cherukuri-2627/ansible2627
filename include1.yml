@@ -1,0 +1,10 @@
+---
+- name: file creation
+  file:
+   path: /home/cherukuri/sample4.txt
+   state: "{{var13}}"
+- name: copy content from one file to the created file
+  copy:
+   src: /home/cherukuri/sampledir/sample3.txt  
+   dest: /home/cherukuri/sample4.txt
+   remote_src: yes
