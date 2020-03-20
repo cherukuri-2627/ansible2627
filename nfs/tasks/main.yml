@@ -1,5 +1,0 @@
----
-# tasks file for nfs
-
-- include_tasks: server.yml
-- include_tasks: client.yml
