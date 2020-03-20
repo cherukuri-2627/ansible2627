@@ -11,36 +11,62 @@
 - name: making dir
   file:
    path: /nfs/general
+<<<<<<< HEAD
    state: present
+=======
+   state: directory
+>>>>>>> dd20472650b5d0ce14911638ab856c884b37b0a7
 
 - name: making dir
   file:
    path: /nfs/home
+<<<<<<< HEAD
    state: present
+=======
+   state: directory
+>>>>>>> dd20472650b5d0ce14911638ab856c884b37b0a7
 
 - name: mounting
   mount:
    path: /nfs/general
+<<<<<<< HEAD
    src: 172.31.45.67:/var/nfs/general
    state: mounted
    fstype: none
+=======
+   src: 172.31.84.169:/var/nfs/general
+   state: mounted
+>>>>>>> dd20472650b5d0ce14911638ab856c884b37b0a7
 
 - name: mounting /nfs/home
   mount:
    path: /nfs/home
+<<<<<<< HEAD
    src: 172.31.45.67:/nfs/home
    state: mounted
    fstype: none
+=======
+   src: 172.31.84.169:/nfs/home
+   state: mounted
+>>>>>>> dd20472650b5d0ce14911638ab856c884b37b0a7
 
 - name: general purpose share
   file:
    path: /nfs/general/general.test
+<<<<<<< HEAD
    state: present
+=======
+   state: touch
+>>>>>>> dd20472650b5d0ce14911638ab856c884b37b0a7
 
 - name: general purpose file in /nfs/home
   file:
    path: /nfs/home/home.test
+<<<<<<< HEAD
    state: present
+=======
+   state: touch
+>>>>>>> dd20472650b5d0ce14911638ab856c884b37b0a7
 
 - name: mounting 
   template:

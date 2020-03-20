@@ -1,7 +1,11 @@
 ---
 - name: updating ubuntu
   apt:
+<<<<<<< HEAD
    update_cache: yes
+=======
+   update_chache: yes
+>>>>>>> dd20472650b5d0ce14911638ab856c884b37b0a7
 
 - name: installing nfs-kernel-server
   apt:
@@ -11,7 +15,11 @@
 - name: making a shared directory
   file:
    path: /var/nfs/general
+<<<<<<< HEAD
    state: present
+=======
+   state: directory
+>>>>>>> dd20472650b5d0ce14911638ab856c884b37b0a7
    owner: nobody
    group: nogroup
 
@@ -25,6 +33,7 @@
    name: nfs-kernel-server
    state: restarted
 
+<<<<<<< HEAD
 - name: firewall permission
   ufw:
    state: enabled
@@ -43,3 +52,11 @@
    dest: 172.31.39.51
    to_port: 2049
 
+=======
+- name: command module
+  command:
+   cmd: sudo ufw allow from 172.31.33.244 to any port nfs
+
+
+   
+>>>>>>> dd20472650b5d0ce14911638ab856c884b37b0a7
