@@ -1,0 +1,9 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+  - name: making sub-dir
+    file: 
+     path: /opt/cherukuri/myf1/myf1
+     state: directory
+  
