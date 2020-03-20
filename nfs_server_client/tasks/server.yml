@@ -1,0 +1,33 @@
+---
+- name: updating ubuntu
+  apt:
+   update_chache: yes
+
+- name: installing nfs-kernel-server
+  apt:
+   name: nfs-kernel-server 
+   state: present
+
+- name: making a shared directory
+  file:
+   path: /var/nfs/general
+   state: directory
+   owner: nobody
+   group: nogroup
+
+- name: editing file for nfs-kernel-server
+  template:
+   src: templates/exports.j2
+   dest: /etc/exports
+
+- name: restarting nfs-kernel-server
+  service:
+   name: nfs-kernel-server
+   state: restarted
+
+- name: command module
+  command:
+   cmd: sudo ufw allow from 172.31.33.244 to any port nfs
+
+
+   
