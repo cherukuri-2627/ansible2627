@@ -1,0 +1,12 @@
+ansible-playbook -i myhosts playbook.yml
+for tags
+ansible-playbook -i myhosts playbook.yml --tags "a1,a2"
+ansible-playbook -i myhosts playbook.yml --skip-tags "a3,a4"
+create .j2--> with exapmle.j2 and call in template for changes
+default location of ansible hostfile is /etc/ansible/host for other location we use -i
+for vault:
+  ansible-vault encrypt playbookname.yml
+  provide password
+  ansible-vault view playbookname.yml
+  ansible-vault edit playbookname.yml
+  ansible-vault decrypt playbookname.yml
