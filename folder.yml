@@ -1,0 +1,12 @@
+---
+- hosts: server
+  become: yes
+  tasks:
+  - name: creating directory
+    file:
+     path: /share
+     state: absent
+     mode: 777
+     owner: root
+     group: root
+
