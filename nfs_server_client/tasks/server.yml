@@ -3,7 +3,6 @@
   apt:
    update_cache: yes
 
-
 - name: installing nfs-kernel-server
   apt:
    name: nfs-kernel-server 
@@ -26,6 +25,7 @@
    name: nfs-kernel-server
    state: restarted
 
+
 - name: firewall permission
   ufw:
    state: enabled
@@ -45,7 +45,3 @@
    from_port: 2049
    dest: 172.31.39.51
    to_port: 2049
-
-
-   
-
