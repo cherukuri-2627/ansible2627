@@ -5,8 +5,7 @@
    var1: present
    var2: absent
    var3: yes
-   var4: abcd
-   var5: bacd
+   password: abcd
   tasks:
   - name: groups creation
     group:
@@ -18,7 +17,7 @@
   - name: user creation in group
     user:
      name: "{{ item }}"
-     password: "{{var4}}"
+     password: "{{password}}"
      shell: /bin/bash
      group: group1
     loop:
@@ -28,7 +27,7 @@
   - name: user creation in group2
     user:
      name: "{{ item }}"
-     password: "{{var5}}"
+     password: "{{password}}"
      shell: /bin/bash
      group: group2
     loop:
