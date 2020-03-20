@@ -1,0 +1,6 @@
+---
+- hosts: server,client
+  become: yes
+  roles:
+    - {role: nfs_server_client, when: ansible_os_family =="Debian"}
+    - {role: nfs_client, when: ansible_os_family == "Debian"}

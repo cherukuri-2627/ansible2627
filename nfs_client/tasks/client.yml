@@ -1,0 +1,48 @@
+---
+- name: apt-update
+  apt:
+   update_cache: yes
+  
+- name: installing nfs-common
+  apt:
+   name: nfs-common
+   state: present
+
+- name: making dir
+  file:
+   path: /nfs/general
+   state: present
+
+- name: making dir
+  file:
+   path: /nfs/home
+   state: present
+
+- name: mounting
+  mount:
+   path: /nfs/general
+   src: 172.31.45.67:/var/nfs/general
+   state: mounted
+   fstype: none
+
+- name: mounting /nfs/home
+  mount:
+   path: /nfs/home
+   src: 172.31.45.67:/nfs/home
+   state: mounted
+   fstype: none
+
+- name: general purpose share
+  file:
+   path: /nfs/general/general.test
+   state: present
+
+- name: general purpose file in /nfs/home
+  file:
+   path: /nfs/home/home.test
+   state: present
+
+- name: mounting 
+  template:
+   src: templates/fstab.j2
+   dest: /etc/fstab

@@ -1,0 +1,12 @@
+---
+- hosts: server
+  become: yes
+  tasks:
+  - name: enabling ufw
+    ufw:
+     state: enable
+     policy: allow
+     cmd: ufw enable
+  - name: incoming client
+    command:
+     cmd: ufw allow from 172.31.39.51 to any port

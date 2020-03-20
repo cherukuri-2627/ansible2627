@@ -1,0 +1,45 @@
+---
+- name: updating ubuntu
+  apt:
+   update_cache: yes
+
+- name: installing nfs-kernel-server
+  apt:
+   name: nfs-kernel-server 
+   state: present
+
+- name: making a shared directory
+  file:
+   path: /var/nfs/general
+   state: present
+   owner: nobody
+   group: nogroup
+
+- name: editing file for nfs-kernel-server
+  template:
+   src: templates/exports.j2
+   dest: /etc/exports
+
+- name: restarting nfs-kernel-server
+  service:
+   name: nfs-kernel-server
+   state: restarted
+
+- name: firewall permission
+  ufw:
+   state: enabled
+   policy: allow
+
+- name: allow openssh
+   rule: allow
+   name: OpenSSH
+
+- name: allow nfs
+   rule: allow
+   name: nfs
+   direction: in 
+   src: 172.31.45.67
+   from_port: 2049
+   dest: 172.31.39.51
+   to_port: 2049
+
