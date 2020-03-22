@@ -1,8 +1,10 @@
 ---
-- name: installing jenkins with command module
-  command:
-   cmd: wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key | sudo apt-key add -
+- name: Add Jenkins-CI Repository Key
+  apt_key:
+    url: "http://pkg.jenkins-ci.org/{{ ansible_os_family|lower }}/jenkins-ci.org.key"
+    state: present
 
-- name: extracting with shell
-  shell: sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
-  
+- name: Add Jenkins-CI Repository
+  apt_repository:
+    repo: 'deb http://pkg.jenkins-ci.org/{{ ansible_os_family|lower }} binary/'
+    state: present

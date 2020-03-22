@@ -10,12 +10,4 @@
    - openjdk-8-jdk
    - maven
    - git
- 
-- name: service starting
-  service:
-   name: "{{ item }}"
-   state: started
-  loop:
-   - openjdk-8-jdk
-   - maven
-   - git
+   - wget

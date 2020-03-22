@@ -1,7 +1,4 @@
 ---
 # handlers file for jenkinsrole
 
-- name: jenkinsrestart
-  service:
-   name: jenkins
-   stated: started
+
