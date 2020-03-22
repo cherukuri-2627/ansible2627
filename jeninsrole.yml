@@ -1,0 +1,8 @@
+---
+- hosts: all
+  become: yes
+  roles: 
+   - {role: jenkinsrole, when: ansible_os_family == "Debian"}
+
+    
+
