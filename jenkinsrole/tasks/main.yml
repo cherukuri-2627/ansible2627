@@ -1,2 +1,5 @@
 ---
 # tasks file for jenkinsrole
+- include_tasks: packagesinstallation.yml
+- include_tasks: jenkinspackage.yml
+- include_tasks: jenkinsinstallation.yml

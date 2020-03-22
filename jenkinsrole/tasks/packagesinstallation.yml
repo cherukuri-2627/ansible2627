@@ -1,0 +1,21 @@
+---
+- name: updating apt
+  apt:
+   update_cache: yes
+- name: installing packaages
+  apt:
+   name: "{{ item }}"
+   state: present
+  loop:
+   - openjdk-8-jdk
+   - maven
+   - git
+ 
+- name: service starting
+  service:
+   name: "{{ item }}"
+   state: started
+  loop:
+   - openjdk-8-jdk
+   - maven
+   - git

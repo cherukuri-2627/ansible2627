@@ -1,0 +1,10 @@
+---
+- name: repository upgradation
+  apt:
+   update_cache: yes
+
+- name: installing jenkins
+  apt:
+   name: jenkins
+   state: present
+  notify: jenkinsrestart
