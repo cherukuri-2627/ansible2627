@@ -1,0 +1,33 @@
+---
+- name: downloading docker
+  command:
+   cmd: curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+- name: downloading and installing installing repo
+  command:
+   cmd: sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+
+- name: updating repo
+  apt:
+   update_cache: yes
+
+- name: intalling docker in cache
+  command:
+   cmd: apt-cache policy docker-ce
+
+- name: installing docker 
+  apt:
+   name: docker-ce
+   state: present
+     
+- name: starting docker service
+  service:
+   name: docker
+   state: started
+
+- name: Add user(s) to "docker" group
+  user:
+    name: cherukuri
+    group: "docker"
+    append: true
+
