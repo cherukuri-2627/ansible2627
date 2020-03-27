@@ -24,7 +24,7 @@
    path: /nfs/general
    src: 172.31.45.67:/var/nfs/general
    state: mounted
-   fstype: none
+   fstype: nfs
 
 
 - name: mounting /nfs/home
@@ -32,7 +32,7 @@
    path: /nfs/home
    src: 172.31.45.67:/nfs/home
    state: mounted
-   fstype: none
+   fstype: nfs
 
 - name: general purpose share
   file:
