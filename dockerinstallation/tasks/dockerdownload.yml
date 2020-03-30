@@ -28,6 +28,6 @@
 - name: Add user(s) to "docker" group
   user:
     name: cherukuri
-    group: "docker"
+    group: docker
     append: true
 
