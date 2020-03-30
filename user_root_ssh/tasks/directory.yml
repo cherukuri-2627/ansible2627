@@ -1,0 +1,11 @@
+---
+- name: creating directory
+  group:
+   name: cluster
+   state: present
+
+- name: file creation
+  file:
+   path: /cluster/hosts
+   state: touch
+  

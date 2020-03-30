@@ -1,0 +1,5 @@
+---
+- name: copying from host.j2 to hosts
+  template:
+    src: templates/host.j2
+    dest: /cluster/hosts
