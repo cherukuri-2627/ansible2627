@@ -1,0 +1,6 @@
+---
+- hosts: master
+  become: yes
+  roles:
+   - {role: user_root_ssh, when: ansible_os_family == "Debian"}
+
