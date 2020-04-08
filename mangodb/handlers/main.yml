@@ -1,6 +1,6 @@
 ---
 # handlers file for mangodb
-- name: restart mangodb
+- name: restart mongodb
   service:
-   name: mangodb 
+   name: mongodb 
    state: restarted

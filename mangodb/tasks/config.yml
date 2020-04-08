@@ -2,7 +2,7 @@
 - name: copying config file
   copy:
    src: templates/mangodb.j2
-   dest: /etc/mangodb.conf
+   dest: /etc/mongodb.conf
    
   notify:
-   - retstart mangodb
+   - restart mongodb
