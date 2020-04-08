@@ -1,2 +1,6 @@
 ---
 # tasks file for mangodb
+- include_tasks: mangodb.yml
+- include_tasks: config.yml
+- include_tasks: security.yml
+- include_tasks: mangodbstart.yml

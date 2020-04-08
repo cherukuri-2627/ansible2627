@@ -1,0 +1,8 @@
+---
+- name: copying config file
+  copy:
+   src: templates/mangodb.j2
+   dest: /etc/mangodb.conf
+   
+  notify:
+   - retstart mangodb

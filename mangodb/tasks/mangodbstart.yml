@@ -1,0 +1,6 @@
+
+- name: Ensure mongodb is running and enabled to start automatically on reboots
+  systemd:
+    name: mongodb
+    enabled: yes
+    state: started

@@ -1,0 +1,8 @@
+---
+- name: creating /etc/security/limits.d/mangodb.conf
+  copy:
+   src: templates/security-mangodb.j2
+   dest: /etc/security/limits.d/mangodb.conf
+
+  notify:
+   - restart mangodb
