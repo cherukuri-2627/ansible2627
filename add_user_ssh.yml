@@ -1,0 +1,50 @@
+---
+- hosts: all
+  vars:
+   - password: 'cherukuri'
+  gather_facts: no
+  remote_user: root
+  tasks:
+  - name: add new user
+    user:
+     name: cherukuri
+     shell: /bin/bash
+     password: "{{ password }}"
+
+  - name: adding user to sudoers
+    copy:
+     dest: "/etc/sudoers.d/cherukuri"
+     content: "cherukuri ALL=(ALL) NOPASSWD: ALL"
+  
+  - name: deploy ssh key
+    authorized_key:
+     user: cherukuri
+     key: "{{ lookup('file','/home/cherukuri/.ssh/id_rsa.pub') }}"
+     state: present
+  
+  - name: disabling password auth
+    lineinfile:
+     dest: /etc/ssh/sshd_config
+     regexp: '^PasswordAuthentication'
+     line: "PasswordAuthentication no"
+     state: present
+     backup: yes
+    notify:
+     - restart ssh
+  
+  - name: Disable Root Login
+    lineinfile:
+     dest: /etc/ssh/sshd_config
+     regexp: '^PermitRootLogin'
+     line: "PermitRootLogin no"
+     state: present
+     backup: yes
+    notify:
+     - restart ssh
+  handlers:
+   - name: restart ssh
+     service:
+      name: sshd
+      state: restarted
+  
+
