@@ -1,0 +1,6 @@
+---
+- name: adding key to grafana
+  apt_key:
+   url: https://packagecloud.io/gpg.key
+   state: present
+   

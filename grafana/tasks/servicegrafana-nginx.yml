@@ -1,0 +1,9 @@
+---
+- name: service restarting grafana
+  service:
+   name: "{{ item }}"
+   state: restarted
+   enable: yes
+  loop:
+   - nginx
+   - grafana

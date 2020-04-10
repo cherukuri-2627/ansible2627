@@ -1,2 +1,7 @@
 ---
 # tasks file for grafana
+- include_tasks: apt-keyadd.yml
+- include_tasks: repo.yml
+- include_tasks: apt-update.yml
+- include_tasks: grafana-nginx.yml
+- include_tasks: servicegrafana-nginx.yml

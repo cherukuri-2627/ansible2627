@@ -1,0 +1,8 @@
+---
+- name: installing grafana
+  apt:
+   name: "{ item }}"
+   state: present
+  loop:
+   - nginx
+   - grafana 
