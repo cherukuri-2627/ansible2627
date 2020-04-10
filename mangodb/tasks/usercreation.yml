@@ -1,0 +1,18 @@
+---
+- mongodb_user:
+   login_user: root
+   database: test
+   name: user1
+   password: user1
+   roles: readWriteAnyDatabase
+   state: present
+   # update_password: on_create
+   
+
+
+- name: restart mongodb 
+  service:
+   name: mongodb
+   state: restarted
+   
+
