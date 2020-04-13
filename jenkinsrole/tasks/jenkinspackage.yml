@@ -8,3 +8,4 @@
   apt_repository:
     repo: 'deb http://pkg.jenkins-ci.org/{{ ansible_os_family|lower }} binary/'
     state: present
+    update_cache: yes

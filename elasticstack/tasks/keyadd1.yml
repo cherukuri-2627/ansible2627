@@ -1,0 +1,6 @@
+---
+- name: adding key 
+  apt_key:
+   url: https://artifacts.elastic.co/GPG-KEY-elasticsearch
+   state: present 
+   

@@ -1,0 +1,8 @@
+---
+- name: installing elastic search
+  apt:
+   name: "{{ item }}"
+   state: present
+  loop:
+   - elasticsearch
+   - kibana

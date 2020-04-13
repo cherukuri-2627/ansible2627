@@ -1,0 +1,7 @@
+---
+- name: adding to repo
+  apt_repository:
+   repo: "deb https://artifacts.elastic.co/packages/7.x/apt stable main"
+   filename: /etc/apt/sources.list.d/elastic-7.x.list
+   state: present
+   update_cache: true

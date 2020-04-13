@@ -1,0 +1,4 @@
+---
+- name: updating repository
+  apt:
+   update_cache: yes

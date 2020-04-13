@@ -1,0 +1,9 @@
+---
+- name: service starting of elastic search
+  systemd:
+   name: "{{ item }}"
+   state: restarted
+   enabled: yes
+  loop:
+   - elasticsearch
+   - kibana
