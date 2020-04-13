@@ -1,5 +1,9 @@
 ---
-- name: adding to repository
+- name: adding repository
   apt_repository:
-   repo: deb https://packagecloud.io/grafana/stable/debian/ stretch main
+   repo: "deb https://packagecloud.io/grafana/stable/debian/ stretch main"
+   update_cache: yes
    state: present
+
+
+   
