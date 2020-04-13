@@ -1,0 +1,9 @@
+---
+- name: creating files for copying
+  file:
+   path: "{{ item }}"
+   state: touch
+  loop:
+   - /etc/logstash/conf.d/02-beats-input.conf
+   - /etc/logstash/conf.d/10-syslog-filter.conf
+   - /etc/logstash/conf.d/30-elasticsearch-output.conf

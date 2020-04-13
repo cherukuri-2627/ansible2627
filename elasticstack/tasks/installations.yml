@@ -6,3 +6,4 @@
   loop:
    - elasticsearch
    - kibana
+   - logstash

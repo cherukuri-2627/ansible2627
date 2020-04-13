@@ -1,0 +1,16 @@
+---
+- name: copying logstash templates
+  template:
+   src: templates/template1.j2
+   dest:  /etc/logstash/conf.d/02-beats-input.conf
+
+
+- name: copying template2 to file2
+  template:
+   src: templates/template2.j2
+   dest: /etc/logstash/conf.d/10-syslog-filter.conf
+
+- name: copying template3 to file3
+  template:
+   src: templates/template3.j2
+   dest: /etc/logstash/conf.d/30-elasticsearch-output.conf
