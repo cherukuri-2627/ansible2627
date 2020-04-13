@@ -1,2 +1,8 @@
 ---
 # tasks file for elasticstack
+- include_tasks: keyadd1.yml
+- include_tasks: keytorepo.yml
+- include_tasks: aptupdate.yml
+- include_tasks: installations.yml
+#- include_tasks: contentchanges.yml
+- include_tasks: servicees.yml

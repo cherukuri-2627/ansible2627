@@ -1,0 +1,18 @@
+---
+- name: changing 127.0.0.1 to localhost
+  lineinfile:
+   path: /etc/elasticsearch/elasticsearch.yml
+   regexp: '^localhost'
+   line: localhost 127.0.0.1 
+   owner: root
+   group: root
+   mode: '0644'
+
+- name: changing comment
+  lineinfile:
+   path: /etc/elasticsearch/elasticsearch.yml
+   regexp: '^#network.host'
+   line: 'network.host: localhost'
+   backrefs: yes
+      
+
