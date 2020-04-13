@@ -1,9 +1,6 @@
 ---
 - name: installing elastic search
   apt:
-   name: "{{ item }}"
+   name: elasticsearch
    state: present
    update_cache: true
-  loop:
-   - kibana
-   - logstash

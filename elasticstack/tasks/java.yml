@@ -1,0 +1,17 @@
+---
+- name: updating repo
+  apt:
+   update_cache: yes
+
+- name: installing java
+  apt:
+   name: openjdk-8-jdk
+   state: present
+
+- name: adding java_home
+  lineinfile:
+   path: /etc/environment
+   line: JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java"
+   
+
+

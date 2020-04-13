@@ -3,9 +3,10 @@
 - include_tasks: keyadd1.yml
 - include_tasks: keytorepo.yml
 - include_tasks: aptupdate.yml
+- include_tasks: elastisearch.yml
+- include_tasks: java.yml
 - include_tasks: installations.yml
-#- include_tasks: contentchanges.yml
 - include_tasks: servicees.yml
 - include_tasks: logstashfile.yml
-- include_tasks: copyinglogstash.yml
+- include_tasks: copyinglogstatsh.yml
 - include_tasks: servicees.yml
