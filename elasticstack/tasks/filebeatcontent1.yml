@@ -1,0 +1,17 @@
+- name: changing comment
+  lineinfile:
+   path: /etc/filebeat/filebeat.yml
+   regexp: '^output.elasticsearch:'
+   line: '#output.elasticsearch:'
+   
+- name: commenting
+  lineinfile:
+   path: /etc/filebeat/filebeat.yml
+   regexp: '^Array of hosts to connect to.'
+   line: '#Array of hosts to connect to.'
+
+- name: commenting
+  lineinfile:
+   path: /etc/filebeat/filebeat.yml
+   regexp: '^hosts: ["localhost:9200"]'
+   line: '^#hosts: ["localhost:9200"]'

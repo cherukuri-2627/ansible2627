@@ -1,0 +1,25 @@
+---
+- name: content change
+  lineinfile:
+   path: /etc/filebeat/filebeat.yml
+   regexp: '^#output.logstash:'
+   line: '^output.logstash:'
+
+- name: content change
+  lineinfile:
+   path: /etc/filebeat/filebeat.yml
+   regexp: '^#hosts: ["localhost:5044"]'
+   line: '^hosts: ["localhost:5044"]'
+
+- name: command to enable filebeat modules
+  command:
+   cmd: "{{ item }}"
+  loop:
+   - sudo filebeat modules enable system
+   - sudo filebeat setup --template -E output.logstash.enabled=false -E 'output.elasticsearch.hosts=["localhost:9200"]'
+
+- name: service restart of file beat
+  systemd:
+   name: filebeat
+   state: restarted
+   enable: true

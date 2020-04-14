@@ -10,3 +10,7 @@
 - include_tasks: logstashfile.yml
 - include_tasks: copyinglogstatsh.yml
 - include_tasks: servicees.yml
+- include_tasks: filebeatinstall.yml
+- include_tasks: filebeatcontent1.yml
+- include_tasks: filebeatcontent2.yml
+

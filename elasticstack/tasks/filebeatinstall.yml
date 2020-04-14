@@ -1,0 +1,10 @@
+---
+- name: updatting apt
+  apt:
+   update_cache: true
+
+- name: installing filebeat
+  apt:
+   name: filebeat
+   state: present
+   
