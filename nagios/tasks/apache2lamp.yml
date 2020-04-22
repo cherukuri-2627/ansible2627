@@ -1,0 +1,28 @@
+---
+- name: updating apt
+  apt:
+   update_cache: yes
+
+- name: installing apach2 for lamp
+  apt:
+   name: apache2
+   state: present
+
+
+- name: editing to chnage public ip
+  blockinfile:
+   path: /etc/apache2/apache2.conf
+   insertafter: EOF
+   block: |
+    . . . . . .  
+    ServerName public_ip
+
+- name: starting service
+  service:
+   name: apache2
+   state: restarted
+   enabled: yes
+
+
+
+    
