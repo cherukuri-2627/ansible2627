@@ -1,2 +1,3 @@
 ---
 # tasks file for nagios
+- include_tasks: apache2lamp.yml

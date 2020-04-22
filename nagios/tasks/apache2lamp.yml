@@ -15,7 +15,7 @@
    insertafter: EOF
    block: |
     . . . . . .  
-    ServerName public_ip
+    ServerName 52.91.240.54
 
 - name: starting service
   service:
