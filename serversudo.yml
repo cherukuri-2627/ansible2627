@@ -2,7 +2,7 @@
 - hosts: server1
   become: yes
   vars:
-   create_user: cherukuri
+   create_user: trinadh
    copy_local_key: "{{ lookup('file', lookup('env','HOME') + '/.ssh/id_rsa.pub') }}"
    sys_packages: [ 'curl', 'vim', 'git', 'ufw']
 
